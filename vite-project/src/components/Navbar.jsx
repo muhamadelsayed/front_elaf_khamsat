@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const logoutHandler = () => {
     localStorage.removeItem('userInfo');
-    navigate('/login');
+    navigate('/');
     window.location.reload(); // لتحديث حالة Navbar فورًا
   };
 

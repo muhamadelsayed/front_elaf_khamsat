@@ -20,6 +20,7 @@ const HomePage = () => {
         // production
         const { data } = await api.get('/api/orders/myorders', config);
         const ids = new Set(data.map(order => order.summary._id));
+        
         setPurchasedIds(ids);
       };
       fetchMyOrders();
