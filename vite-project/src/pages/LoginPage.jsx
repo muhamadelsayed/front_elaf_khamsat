@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-
+import api from '../api'; // استيراد ملف api.js
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,8 +24,8 @@ const LoginPage = () => {
     setLoading(true);
     setError(null);
     try {
-      const { data } = await axios.post('/api/auth/login', { email, password });
-      
+      const { data } = await api.post('/auth/login', { email, password });
+
       // حفظ بيانات المستخدم في التخزين المحلي للمتصفح
       localStorage.setItem('userInfo', JSON.stringify(data));
       

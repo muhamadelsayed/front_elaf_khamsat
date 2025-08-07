@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../api';
 
 const AddSummaryPage = () => {
   const [title, setTitle] = useState('');
@@ -27,7 +28,8 @@ const AddSummaryPage = () => {
         },
       };
       const summaryData = { title, description, courseName, university, price };
-      await axios.post('/api/summaries', summaryData, config);
+      // await axios.post('/api/summaries', summaryData, config);
+      await api.post('/summaries', summaryData, config);
       setLoading(false);
       alert('تم إضافة الملخص بنجاح!');
       navigate('/');

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import SummaryCard from '../components/SummaryCard';
+import api from '../api'; // أضف هذا السطر
 
 const HomePage = () => {
   const [summaries, setSummaries] = useState([]);
@@ -15,7 +16,9 @@ const HomePage = () => {
     if (userInfo) {
       const fetchMyOrders = async () => {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get('/api/orders/myorders', config);
+        // const { data } = await axios.get('/api/orders/myorders', config);
+        // production
+        const { data } = await api.get('/orders/myorders', config);
         const ids = new Set(data.map(order => order.summary._id));
         setPurchasedIds(ids);
       };

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import axios from 'axios'; // لاستدعاء الـ API
+import api from '../api'; // استيراد ملف api.js
 
 const RegisterPage = () => {
   // استخدام useState لتخزين قيم حقول الإدخال
@@ -41,8 +42,8 @@ const RegisterPage = () => {
 
       // إرسال طلب POST إلى مسار التسجيل في الواجهة الخلفية
       // لاحظ أننا نستخدم /api/... بفضل إعداد البروكسي في vite.config.js
-      const { data } = await axios.post('/api/auth/register', body, config);
-      
+      const { data } = await api.post('/auth/register', body, config);
+
       console.log('تم التسجيل بنجاح:', data);
       setSuccess(true); // عرض رسالة النجاح
       setLoading(false); // إيقاف التحميل

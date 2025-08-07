@@ -1,6 +1,7 @@
 // src/pages/MyOrdersPage.jsx
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import api from '../api'; // استيراد ملف api.js
 import { Link } from 'react-router-dom';
 
 const MyOrdersPage = () => {
@@ -14,7 +15,8 @@ const MyOrdersPage = () => {
     const fetchMyOrders = async () => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get('/api/orders/myorders', config);
+        // const { data } = await axios.get('/api/orders/myorders', config);
+        const { data } = await api.get('/orders/myorders', config);
         setOrders(data);
         setLoading(false);
       } catch (err) {
