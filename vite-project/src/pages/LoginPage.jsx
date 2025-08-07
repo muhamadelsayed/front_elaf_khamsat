@@ -24,7 +24,7 @@ const LoginPage = () => {
     setLoading(true);
     setError(null);
     try {
-      const { data } = await api.post('/auth/login', { email, password });
+      const { data } = await api.post('/api/auth/login', { email, password });
 
       // حفظ بيانات المستخدم في التخزين المحلي للمتصفح
       localStorage.setItem('userInfo', JSON.stringify(data));

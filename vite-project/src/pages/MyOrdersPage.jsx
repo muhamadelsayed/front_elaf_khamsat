@@ -16,7 +16,7 @@ const MyOrdersPage = () => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         // const { data } = await axios.get('/api/orders/myorders', config);
-        const { data } = await api.get('/orders/myorders', config);
+        const { data } = await api.get('/api/orders/myorders', config);
         setOrders(data);
         setLoading(false);
       } catch (err) {

@@ -18,7 +18,7 @@ const HomePage = () => {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         // const { data } = await axios.get('/api/orders/myorders', config);
         // production
-        const { data } = await api.get('/orders/myorders', config);
+        const { data } = await api.get('/api/orders/myorders', config);
         const ids = new Set(data.map(order => order.summary._id));
         setPurchasedIds(ids);
       };

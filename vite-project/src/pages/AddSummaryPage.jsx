@@ -29,7 +29,7 @@ const AddSummaryPage = () => {
       };
       const summaryData = { title, description, courseName, university, price };
       // await axios.post('/api/summaries', summaryData, config);
-      await api.post('/summaries', summaryData, config);
+      await api.post('/api/summaries', summaryData, config);
       setLoading(false);
       alert('تم إضافة الملخص بنجاح!');
       navigate('/');

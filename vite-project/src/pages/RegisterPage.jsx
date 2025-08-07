@@ -42,7 +42,7 @@ const RegisterPage = () => {
 
       // إرسال طلب POST إلى مسار التسجيل في الواجهة الخلفية
       // لاحظ أننا نستخدم /api/... بفضل إعداد البروكسي في vite.config.js
-      const { data } = await api.post('/auth/register', body, config);
+      const { data } = await api.post('/api/auth/register', body, config);
 
       console.log('تم التسجيل بنجاح:', data);
       setSuccess(true); // عرض رسالة النجاح
