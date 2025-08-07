@@ -54,7 +54,9 @@ const HomePage = () => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-      await axios.post('/api/orders', { summaryId }, config);
+      // await axios.post('/api/orders', { summaryId }, config);
+      // production
+      await api.post('/api/orders', { summaryId }, config);
       setPurchasedIds(prevIds => new Set(prevIds).add(summaryId));
       alert('تمت عملية الشراء بنجاح!');
     } catch (err) {
