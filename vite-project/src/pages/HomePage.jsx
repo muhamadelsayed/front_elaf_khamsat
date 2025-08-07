@@ -30,7 +30,9 @@ const HomePage = () => {
     const fetchSummaries = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get('/api/summaries');
+        // const { data } = await axios.get('/api/summaries');
+        // production
+        const { data } = await api.get('/api/summaries');
         setSummaries(data);
         setLoading(false);
       } catch (err) {
